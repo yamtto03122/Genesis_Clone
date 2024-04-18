@@ -1,0 +1,161 @@
+.container{
+  margin: 70px 0 0 0;
+}
+
+.inner {
+  width: auto;
+  height: 100%;
+  padding: 0px 100px;
+  position: relative;
+  top: 0;
+  left: 0;
+  //.mobile { display: none;}
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  z-index: -1;
+  border: none;
+}
+
+body, html {
+  font-size: 14px;
+  font-family: $text;
+  line-height: 1; //배수를 의미
+  background-color: $blackColor;
+}
+
+.skip-menu li a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  color: $whiteColor;
+  background-color: $blackColor;
+  font-weight: bold;
+  text-align: center;
+}
+
+.skip-menu li a:focus {
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.mobile {
+  display: none;
+}
+
+.dic-btn {
+  width: 100%;
+  height: 53px;
+  border: 1px solid $whiteColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $whiteColor;
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  z-index: 1;
+  &::after {
+    content: "";
+    width: 0px;
+    height: 100%;
+    background: $whiteColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: width 0s 0.5s, opacity 0.5s 0s;  //듀레이션 , 딜레이 순
+  }
+  &:hover::after {
+    width: 100%;
+    opacity: 1;
+    transition: width 0.5s 0s, opacity 0s;
+  }
+  &:hover {
+    color: #151515;
+  }
+}
+
+.link-btn-v2 {
+  color: $whiteColor;
+  font-size: 14px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  span{
+    position: relative;
+    top: 0;
+    left: 0;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: $whiteColor;
+      display: block;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+    &::after {
+      content: "";
+      width: 0%;
+      height: 1px;
+      background: $whiteColor;
+      display: block;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transition: 0.3s;
+    }
+  }
+  &:hover span::before {
+    display: none;
+  }
+  &:hover span::after {
+    width: 100%;
+  }
+}
+
+@include laptop {
+  .inner {
+    padding: 0px auto;
+  }
+}
+
+@include laptop2 {
+  .inner {
+    padding: 0px 75px;
+  }
+}
+
+@include tablet{
+  .container{
+    margin: 60px 0 0 0;
+  }
+  .inner {
+    padding: 0px 20px;
+  }
+}
+
+@include mobile{
+  .pc {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../scss/base/reset';
+
+@import '../scss/base/var.scss';
+@import '../scss/base/fontFace.scss';
+@import '../scss/base/mixin.scss';
+@import '../scss/base/preset.scss';
+
+@import '../scss/layout/header';
+@import '../scss/layout/footer';
+
+@import '../scss/page/main';
+
+//@import는 외부에 있는 다른 scss파일을 연결하는 구문
+
+//scss는 컴포넌트 방식으로 여러개의 파일을 나누기 때문에 통합하는 과정이 필요하다.
+//동일한 scss파일을 import할 때에는 확장자 명을 생락해도 된다. (다른 확장자는 반드시 확장자명 기입)
+//컴파일이 필요하지 않은 scss파일은 파일명 앞에 _를 붙이면 컴파일 대상에서 제외된다.
